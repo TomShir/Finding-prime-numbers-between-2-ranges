@@ -7,11 +7,12 @@ def log_prime_number():
     #Creating a logger object 
     prime_number_logger=logging.getLogger('prime_number_logger')
     prime_number_logger.setLevel(logging.INFO)
-    file_handler=logging.FileHandler('primenumbers.log')
+    file_handler=logging.FileHandler('primenumbers.log',mode='a')
     logging_format=logging.Formatter('%(name)s-%(message)s')
     file_handler.setFormatter(logging_format)
     file_handler.setLevel(logging.INFO)
     prime_number_logger.addHandler(file_handler)
+    prime_number_logger.info(f'Prime numbers between {start} and {stop}:\n')
     for prime_number in prime_numbers:
         prime_number_logger.info(f'{prime_number}')
     else:
